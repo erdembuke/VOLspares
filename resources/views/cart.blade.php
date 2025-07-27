@@ -88,7 +88,7 @@
             <div id="modal-content" class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full text-center relative">
                 <div id="modal-step1">
                     <h3 class="text-xl font-bold mb-4">Are you sure that you want to Checkout?</h3>
-                    <div class="mb-6 text-gray-600">This action is irreversible.</div>
+                    <div class="mb-6 text-red-600">This action is irreversible.</div>
                     <div class="mb-6 font-semibold">
                         Total Price: <span class="text-blue-700">{{ number_format($total, 2) }} ₺</span>
                     </div>
