@@ -22,7 +22,7 @@
 <body class="bg-gray-50 min-h-screen">
 
 <!-- HEADER -->
-<header class="bg-white shadow py-4 px-8 flex justify-between items-center">
+<header class="bg-white shadow py-4 px-8 flex justify-between items-center fixed w-full top-0 z-50">
     <div class="flex items-center gap-8">
         <a href="{{ route('homepage') }}" class="text-xl font-bold text-blue-700">VOLspares</a>
         <a href="{{ route('homepage') }}" class="hover:text-blue-700 font-semibold">Home Page</a>
@@ -73,7 +73,7 @@
         @endguest
     </div>
 </header>
-
+<div class="h-20"></div>
 <!-- MAIN -->
 <div class="flex max-w-7xl mx-auto mt-8 gap-8">
     <!-- LEFT FILTER MENU -->
