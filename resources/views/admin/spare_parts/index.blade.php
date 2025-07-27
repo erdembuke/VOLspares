@@ -2,21 +2,22 @@
     <div class="max-w-6xl mx-auto py-10 px-4">
         <h1 class="text-4xl font-bold mb-10 text-center">Spare Part List</h1>
 
-        <!-- Search Form -->
-        <form method="GET" action="{{ route('spare-parts.index') }}" class="mb-6 flex justify-end">
-            <input
-                    type="text"
-                    name="search"
-                    value="{{ request('search') }}"
-                    placeholder="Search by part name..."
-                    class="border rounded p-3 mr-2 w-64"
-            />
-            <button type="submit" class="bg-blue-600 text-white px-5 py-3 rounded font-semibold">Search</button>
-        </form>
-
-        <div class="mb-6 flex justify-end">
+        <!-- Search + Add Button (satırda, sağ/sol) -->
+        <div class="mb-6 flex justify-between items-center gap-4">
+            <!-- Sol: Search -->
+            <form method="GET" action="{{ route('spare-parts.index') }}" class="flex gap-2">
+                <input
+                        type="text"
+                        name="search"
+                        value="{{ request('search') }}"
+                        placeholder="Search by part name..."
+                        class="border rounded p-3 w-96"
+                />
+                <button type="submit" class="bg-blue-600 text-white px-5 py-3 rounded font-semibold">Search</button>
+            </form>
+            <!-- Sağ: Add New -->
             <a href="{{ route('spare-parts.create') }}"
-               class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 font-semibold shadow text-lg">
+               class="px-5 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 font-semibold shadow text-lg whitespace-nowrap">
                 + Add a New Spare Part
             </a>
         </div>
