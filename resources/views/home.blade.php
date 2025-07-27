@@ -47,7 +47,7 @@
                         'XC40', 'XC60', 'XC70', 'XC90',
                         'C30', 'C70', 'S100', '240', '260', '440', '460', '480', '740', '760', '780'
                     ] as $model)
-                        <option value="{{ $model }}">{{ $model }}</option>
+                        <option value="{{ $model }}" {{ request('model') == $model ? 'selected' : '' }}>{{ $model }}</option>
                     @endforeach
                 </select>
             </div>
@@ -56,7 +56,7 @@
                 <select name="year" class="w-full rounded border-gray-300">
                     <option value="">All</option>
                     @for($y = 1990; $y <= 2025; $y++)
-                        <option value="{{ $y }}">{{ $y }}</option>
+                        <option value="{{ $y }}" {{ request('year') == $y ? 'selected' : '' }}>{{ $y }}</option>
                     @endfor
                 </select>
             </div>
@@ -65,7 +65,7 @@
                 <select name="category" class="w-full rounded border-gray-300">
                     <option value="">All</option>
                     @foreach(['Engine', 'Transmission', 'Suspension', 'Ignition System', 'Coolant System', 'Brake System', 'Lights', 'Interior/Exterior', 'Maintenance'] as $cat)
-                        <option value="{{ $cat }}">{{ $cat }}</option>
+                        <option value="{{ $cat }}" {{ request('category') == $cat ? 'selected' : '' }}>{{ $cat }}</option>
                     @endforeach
                 </select>
             </div>
@@ -74,13 +74,13 @@
                 <select name="part_brand" class="w-full rounded border-gray-300">
                     <option value="">All</option>
                     @foreach(['VOLVO (Genuine)', 'Bosch', 'Valeo', 'NGK', 'LONGSERNG', 'Monroe'] as $brand)
-                        <option value="{{ $brand }}">{{ $brand }}</option>
+                        <option value="{{ $brand }}" {{ request('part_brand') == $brand ? 'selected' : '' }}>{{ $brand }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3 flex gap-2">
-                <input type="number" name="min_price" placeholder="Min ₺" class="w-1/2 rounded border-gray-300" min="0">
-                <input type="number" name="max_price" placeholder="Max ₺" class="w-1/2 rounded border-gray-300" min="0">
+                <input type="number" name="min_price" placeholder="Min ₺" class="w-1/2 rounded border-gray-300" min="0" value="{{ request('min_price') }}">
+                <input type="number" name="max_price" placeholder="Max ₺" class="w-1/2 rounded border-gray-300" min="0" value="{{ request('max_price') }}">
             </div>
             <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700">Search</button>
         </form>
