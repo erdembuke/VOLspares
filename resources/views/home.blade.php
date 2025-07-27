@@ -120,7 +120,7 @@
                         </button>
                         <button type="button"
                                 class="flex-1 py-2 rounded bg-green-600 text-white font-semibold hover:bg-green-700"
-                                onclick="alert('Şimdi satın al (dummy)!')">
+                                onclick="alert('Button is not working yet! Please Continue with Add to Cart Function')">
                             Buy Now
                         </button>
                     </div>
