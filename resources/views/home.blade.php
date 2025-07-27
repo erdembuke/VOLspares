@@ -221,7 +221,7 @@
                 .then(res => res.json())
                 .then(res => {
                     if(res.success) {
-                        showSuccess("Ürün başarıyla sepete eklendi!");
+                        showSuccess("Product has been added to the cart successfully!");
                     }
                 });
         });
