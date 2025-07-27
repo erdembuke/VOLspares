@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('spareparts', function (Blueprint $table) {
-            $table->text('description')->nullable()->after('category');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->string('status')->default('completed')->after('total');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('spareparts', function (Blueprint $table) {
-            $table->dropColumn('description');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 };
