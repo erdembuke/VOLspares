@@ -23,6 +23,12 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware(['auth', 'admin'])
     ->name('admin.dashboard');
 
+// Cart
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+
+
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
     ->group(function () {

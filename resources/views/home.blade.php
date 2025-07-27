@@ -30,6 +30,14 @@
         <a href="#" class="hover:text-blue-700 font-semibold">Partnership</a>
     </div>
     <div class="flex items-center gap-4">
+        <!-- Cart Img -->
+        <a href="{{ route('cart.show') }}" class="mr-3">
+            <svg class="w-8 h-8 text-blue-600 hover:text-blue-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.7 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+        </a>
         @guest
             <a href="{{ route('login') }}" class="text-blue-600 font-bold px-4 py-1 rounded hover:underline">Login</a>
             <a href="{{ route('register') }}" class="bg-blue-600 px-4 py-1 rounded text-white font-bold hover:bg-blue-700">Register</a>
@@ -157,8 +165,8 @@
                     </a>
                     <div class="flex w-full gap-2">
                         <button type="button"
-                                class="flex-1 py-2 rounded bg-yellow-500 text-white font-semibold hover:bg-yellow-600"
-                                onclick="alert('Sepete eklendi! (dummy)')">
+                                class="flex-1 py-2 rounded bg-yellow-500 text-white font-semibold hover:bg-yellow-600 add-to-cart-btn"
+                                data-id="{{ $part->id }}">
                             Add to Cart
                         </button>
                         <button type="button"
@@ -198,6 +206,40 @@
 
 <!-- SCRIPTS -->
 <script>
+    // Cart
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            fetch("{{ route('cart.add') }}", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({spare_part_id: btn.dataset.id})
+            })
+                .then(res => res.json())
+                .then(res => {
+                    if(res.success) {
+                        showSuccess("Ürün başarıyla sepete eklendi!");
+                    }
+                });
+        });
+    });
+
+    function showSuccess(message) {
+        let successBox = document.getElementById('success-message');
+        if (!successBox) {
+            successBox = document.createElement('div');
+            successBox.id = 'success-message';
+            successBox.className = 'fixed top-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-8 py-3 rounded shadow-xl text-lg z-50';
+            document.body.appendChild(successBox);
+        }
+        successBox.innerText = message;
+        successBox.style.display = 'block';
+        setTimeout(() => { successBox.style.display = 'none'; }, 2000);
+    }
+
+
     // Show Modal
     document.querySelectorAll('.view-details-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
