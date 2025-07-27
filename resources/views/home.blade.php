@@ -181,6 +181,7 @@
             <div class="col-span-3 text-center text-gray-400 py-16">No parts found.</div>
         @endforelse
     </main>
+</div> <!-- !!! ANA FLEX DIV'İNİ KAPATTIM !!! -->
 
 <!-- MODAL POPUP -->
 <div id="modal-bg" class="fixed inset-0 z-50 flex items-center justify-center modal-bg hidden">

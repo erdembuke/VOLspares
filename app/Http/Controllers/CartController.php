@@ -11,7 +11,7 @@ class CartController extends Controller
     public function add(Request $request)
     {
         $request->validate([
-            'spare_part_id' => 'required|exists:spare_parts,id'
+            'spare_part_id' => 'required|exists:spareparts,id'
         ]);
         $sparePartId = $request->input('spare_part_id');
         $cart = session()->get('cart', []);
