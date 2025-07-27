@@ -16,7 +16,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 // Kullanici dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'admin'])->name('dashboard');
 
 // admin dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])

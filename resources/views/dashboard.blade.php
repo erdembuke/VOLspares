@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="max-w-6xl mx-auto p-8">
         <!-- Hoşgeldin ve Bilgi -->
         <div class="mb-8">
