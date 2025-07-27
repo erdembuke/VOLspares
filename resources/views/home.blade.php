@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>VOLspares - Home</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @vite('resources/css/app.css')
     <style>
         .modal-bg {
