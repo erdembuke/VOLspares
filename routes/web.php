@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\SparePartController;
+use App\Http\Controllers\CartController;
 
 // Anasayfa
 Route::get('/', function () {
@@ -21,12 +22,6 @@ Route::get('/dashboard', function () {
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])
     ->middleware(['auth', 'admin'])
     ->name('admin.dashboard');
-
-// cart
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-Route::get('/cart/items', [CartController::class, 'items'])->name('cart.items');
-Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
-
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
